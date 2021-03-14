@@ -7,7 +7,11 @@ Output size (width=height) is size+size_of_transition.
 The calculated zone plate is scaled to 110.0f amplitude and added 16.0f offset for 16..235 levels 8bit (16 bit is 256.0 multiplied, float is just float in 16..235).
 Edges are conditioned to transition to 16 code level (with hard coded 50 and 110 of 8bit values).
 
-Using: hpzp size size_of_transition scale. All 3 parameters must present.
+Using: 
+hpzp size size_of_transition scale. 
+
+All 3 parameters must present.
+
 size - size of zone plate in samples. Integer number.
 size_of_transition scale - size of transition to mid-level, transition is shaped with cosine curve. Integer number, even value recommended.
 scale - the most magic param, determite the highest frequency in zone plate. Determined with hand picked. Typical values for start - 1/size. Float number.
