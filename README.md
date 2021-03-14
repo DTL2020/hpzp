@@ -14,7 +14,7 @@ All 3 parameters must present.
 
 size - size of zone plate in samples. Integer number.
 size_of_transition scale - size of transition to mid-level, transition is shaped with cosine curve. Integer number, even value recommended.
-scale - the most magic param, determite the highest frequency in zone plate. Determined with hand picked. Typical values for start - 1/size. Float number.
+scale - the most magic param, determite the highest frequency in zone plate. Determined with hand adjusted value. Typical values for start - 1/size. Float number.
 Float number digit may depends on OS regional options like 0.02 or 0,02.
 
 Example: hpzp 272 16 0.02
