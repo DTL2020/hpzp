@@ -140,37 +140,52 @@ int main(int argc, const char* argv[])
 			pusArr[x] = (unsigned short)(110.0f * 256.0f + 16.0f * 256.0f + fOut * 256.0f);
 			pfArr[x] = 110.0f + 16.0f + fOut;
 
-			// transition to code level 16 (8bit) - immediate 110, 50
-
-			// top and bottom
-			if ((y == 0) || (y == iHeightFull - 1))
-				for (int idx = 0; idx < iWidthFull; idx++)
-				{
-					pucArr[idx] = 50;
-					pusArr[idx] = 50 * 256;
-					pfArr[idx] = 50.0f;
-				}
-			if ((y == 1) || (y == iHeightFull - 2))
-				for (int idx = 0; idx < iWidthFull; idx++)
-				{
-					pucArr[idx] = 110;
-					pusArr[idx] = 110 * 256;
-					pfArr[idx] = 110.0f;
-				}
-
-			// left and right
-
-			pucArr[0] = 50;
-			pucArr[iWidthFull - 1] = 50;
-
-			pusArr[0] = 50 * 256;
-			pusArr[iWidthFull - 1] = 50 * 256;
-
-			pfArr[0] = 50.0f;
-			pfArr[iWidthFull - 1] = 50.0f;
-	
-
         } // x
+
+		  // transition to code level 16 (8bit) - immediate 110, 50
+
+		  // top and bottom
+		if ((y == 0) || (y == iHeightFull - 1))
+			for (int idx = 0; idx < iWidthFull; idx++)
+			{
+				pucArr[idx] = 50;
+				pusArr[idx] = 50 * 256;
+				pfArr[idx] = 50.0f;
+			}
+		if ((y == 1) || (y == iHeightFull - 2))
+			for (int idx = 0; idx < iWidthFull; idx++)
+			{
+				pucArr[idx] = 110;
+				pusArr[idx] = 110 * 256;
+				pfArr[idx] = 110.0f;
+			}
+
+		// left and right
+
+		pucArr[0] = 50;
+		pucArr[iWidthFull - 1] = 50;
+		if (y != 0 && (y != iHeightFull - 1))
+		{
+			pucArr[1] = 110;
+			pucArr[iWidthFull - 2] = 110;
+		}
+
+		pusArr[0] = 50 * 256;
+		pusArr[iWidthFull - 1] = 50 * 256;
+		if (y != 0 && (y != iHeightFull - 1))
+		{
+			pusArr[1] = 110 * 256;
+			pusArr[iWidthFull - 2] = 110 * 256;
+		}
+
+		pfArr[0] = 50.0f;
+		pfArr[iWidthFull - 1] = 50.0f;
+		if (y != 0 && (y != iHeightFull - 1))
+		{
+			pfArr[1] = 110.0f;
+			pfArr[iWidthFull - 2] = 110.0f;
+		}
+
         fwrite(pucArr, 1, iWidthFull, f8);
 		fwrite(pusArr, sizeof(unsigned short), iWidthFull, f16);
 		fwrite(pfArr, sizeof(float), iWidthFull, ff);
