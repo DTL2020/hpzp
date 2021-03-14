@@ -22,8 +22,8 @@ Example: hpzp 272 16 0.02
 Outputs 288x288 raw files.
 
 Example of loading out8.raw into avisynth with Rawsource plugin:
-LoadPlugin("RawSourcePlus.dll")
+'''LoadPlugin("RawSourcePlus.dll")
 RawSourcePlus("out8.raw", 288,288, "Y8")
 ConvertToRGB24(matrix="PC.709")
-AddBorders(10,10,10,10,color=$101010)
+AddBorders(10,10,10,10,color=$101010)'''
 
